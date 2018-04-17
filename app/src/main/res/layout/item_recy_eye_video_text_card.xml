@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/alpha_60_black"
+              style="@style/padding_left_15dip_top_10dip"
+              android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tv_text_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:drawableEnd="@drawable/ic_navigate_next_white_24dp"
+        android:textSize="12sp"
+        tools:text="动画类最新视频" />
+
+</LinearLayout>

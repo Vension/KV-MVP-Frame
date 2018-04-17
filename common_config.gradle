@@ -1,0 +1,49 @@
+ext{
+
+    android = [
+            compileSdkVersion : 27,
+            buildToolsVersion : "27.0.3",
+            minSdkVersion     : 19,
+            targetSdkVersion  : 27,
+            versionCode       : 100,
+            versionName       : "1.0.0"
+    ]
+
+    dependVersion = [
+            androidSupportSdkVersion   : "27.1.0",
+            retrofitSdk                : "2.4.0",
+            glideSdk                   : "4.6.1",
+            rxJavaSdk                  : "2.1.8",
+            rxAndroidSdk               : "2.0.2",
+            rxBindingSdk               : "2.0.0"
+    ]
+
+    supporDepends = [
+            //--------  support  -------
+            support_v4        : "com.android.support:support-v4:$dependVersion.androidSupportSdkVersion",
+            appcompat_v7      : "com.android.support:appcompat-v7:$dependVersion.androidSupportSdkVersion",
+            cardview          : "com.android.support:cardview-v7:$dependVersion.androidSupportSdkVersion",
+            design            : "com.android.support:design:$dependVersion.androidSupportSdkVersion",
+            annotations       : "com.android.support:support-annotations:$dependVersion.androidSupportSdkVersion"
+    ]
+
+    retrofit = [
+            //------ retrofit 和 RxJava ---------
+            rertofit                   : "com.squareup.retrofit2:retrofit:$dependVersion.retrofitSdk",
+            retrofitConverterGson      : "com.squareup.retrofit2:converter-gson:$dependVersion.retrofitSdk",
+            retrofitConverterScalars   : "com.squareup.retrofit2:converter-scalars:$dependVersion.retrofitSdk",
+            retrofitAdapterRxjava2     : "com.squareup.retrofit2:adapter-rxjava2:$dependVersion.retrofitSdk",
+            okhttp3LoggerInterceptor   : 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    ]
+
+    rxJava = [
+            rxJava                : "io.reactivex.rxjava2:rxjava:$dependVersion.rxJavaSdk",
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:$dependVersion.rxAndroidSdk",
+            rxBinding             : "com.jakewharton.rxbinding2:rxbinding:$dependVersion.rxBindingSdk"
+    ]
+
+    supportLibs = supporDepends.values()
+    networkLibs = retrofit.values()
+    rxJavaLibs = rxJava.values()
+
+}

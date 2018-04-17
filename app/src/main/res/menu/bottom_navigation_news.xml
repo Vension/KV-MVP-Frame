@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_news_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_news"/>
+
+    <item
+        android:id="@+id/navigation_news_video"
+        android:icon="@drawable/ic_video_library_black_24dp"
+        android:title="@string/title_video"/>
+
+    <item
+        android:id="@+id/navigation_news_media"
+        android:icon="@drawable/ic_fiber_new_black_24dp"
+        android:title="@string/title_media"/>
+
+    <item
+        android:id="@+id/navigation_news_me"
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:title="@string/tab_title_me"/>
+
+</menu>

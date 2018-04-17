@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="2dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="4dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dip">
+            <ImageView
+                android:id="@+id/iv_like_article"
+                android:layout_width="80dip"
+                android:layout_height="100dip"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/img_load_empty"/>
+            <TextView
+                android:id="@+id/tv_article_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dip"
+                android:text="来自--福利来自--福利来自--福利来自--福利来自--福利来自--福利来自--福利"
+                android:lineSpacingExtra="3dip"
+                android:textSize="@dimen/TextSize_14"
+                android:textColor="@color/app_main_text_color"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dip">
+            <TextView
+                android:id="@+id/tv_article_from"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="来自--福利"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/TextSize_14"
+                android:textColor="@color/Color_999999"/>
+            <TextView
+                android:id="@+id/tv_article_time"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="2018-03-15 15:30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/TextSize_14"
+                android:textColor="@color/Color_999999"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        style="@style/padding_left_15dip_top_10dip">
+
+        <com.sunfusheng.glideimageview.GlideImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/img_load_empty"
+            app:siv_shape_type="circle"
+            app:siv_border_color="@color/app_main_thme_color"
+            app:siv_border_width="1dip"/>
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dip"
+            android:layout_marginRight="12dip"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/app_main_text_color"
+                android:textSize="15sp"
+                tools:text="我正在用 Kotlin 写 Android" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="12sp"
+                tools:text="a/b/c/03`18`" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rect_bg_white_stoke_ddd_radius_5dip"
+           style="@style/padding_left_6dip_top_3dip"
+            android:text="@string/video_attention"
+            android:textColor="@color/black"
+            android:textSize="@dimen/TextSize_12" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fl_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false" />
+
+    <View style="@style/Line_Horizontal_06dip.color_DDDDDD"
+        android:layout_marginLeft="@dimen/MarginSize_15"/>
+
+</LinearLayout>

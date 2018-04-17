@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_new_black_24dp"
+            android:title="头条"/>
+        <item
+            android:id="@+id/nav_eyes"
+            android:icon="@drawable/ic_eye_black_24dp"
+            android:title="开眼"/>
+        <item
+            android:id="@+id/nav_gank"
+            android:icon="@drawable/ic_gallery_black_24dp"
+            android:title="Gank"/>
+    </group>
+
+    <item android:title="其它">
+        <menu>
+            <item
+                android:id="@+id/nav_favorite"
+                android:icon="@drawable/ic_favorite_black_24dp"
+                android:title="收藏"/>
+            <item
+                android:id="@+id/nav_watch_history"
+                android:icon="@drawable/ic_history_black_24dp"
+                android:title="观看记录"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="设置"/>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="分享"/>
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about_user_black_24dp"
+                android:title="关于"/>
+        </menu>
+    </item>
+
+
+</menu>

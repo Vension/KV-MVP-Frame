@@ -1,7 +1,7 @@
 package com.vension.mvp.mvp.gank
 
+import com.vension.frame.base.V_BasePresenter
 import com.vension.mvp.http.exception.ExceptionHandle
-import com.kevin.vension.demo.base.V_BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

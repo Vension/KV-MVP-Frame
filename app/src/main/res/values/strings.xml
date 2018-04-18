@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">KV-MVP-Frame</string>
+
+    <string name="title_news">新闻</string>
+    <string name="title_video">视频</string>
+    <string name="title_media">头条号</string>
+    <string name="title_photo">图片</string>
+
+    <string name="tab_title_home">精选</string>
+    <string name="tab_title_find">发现</string>
+    <string name="tab_title_hot">热门</string>
+    <string name="tab_title_me">我的</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="transition_name">shareView</string>
+    <string name="share_app_text">使用Kotlin开发的个人练手项目，多谢关注！</string>
+    <string name="source_code_url">https://github.com/Vension/KV-MVP-Frame</string>
+
+    <!-- 开眼相关 -->
+    <string name="video_attention">+ 关注</string>
+    <string name="video_offline">缓存</string>
+
+    <string name="search_transition_name">transition_reveal</string>
+    <string name="search_hint_text">帮你找到感兴趣的视频</string>
+    <string name="search_title_tip">输入标题或描述中的关键词找到更多视频</string>
+    <string name="search_hot_keywords_tip">- 热门搜索词 -</string>
+    <string name="search_result_count">-「%1$s」搜索结果共%2$d个-</string>
+
+    <!-- 头条相关-->
+    <string name="new_mine_read_time">今日阅读\n18小时</string>
 </resources>

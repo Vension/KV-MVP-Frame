@@ -9,8 +9,8 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.kevin.vension.demo.base.V_BasePresenter;
-import com.kevin.vension.demo.base.V_IBaseView;
+import com.vension.frame.base.V_BasePresenter;
+import com.vension.frame.base.V_IBaseView;
 import com.vension.frame.utils.NetworkUtil;
 import com.vension.frame.utils.VLogUtil;
 import com.vension.frame.utils.VObsoleteUtil;

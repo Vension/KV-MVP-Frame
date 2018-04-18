@@ -1,9 +1,12 @@
-package com.kevin.vension.demo.adapters.recy
+package com.vension.frame.adapters.recy
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.kevin.vension.demo.adapters.recy.MultipleType
+import com.kevin.vension.demo.adapters.recy.OnItemClickListener
+import com.kevin.vension.demo.adapters.recy.ViewHolder
 
 /**
  * ========================================================

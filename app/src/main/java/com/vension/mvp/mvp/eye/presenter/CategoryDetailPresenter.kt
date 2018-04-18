@@ -1,6 +1,6 @@
 package com.vension.mvp.mvp.eye.presenter
 
-import com.kevin.vension.demo.base.V_BasePresenter
+import com.vension.frame.base.V_BasePresenter
 import com.vension.mvp.mvp.eye.contract.CategoryDetailContract
 import com.vension.mvp.mvp.eye.model.CategoryDetailModel
 

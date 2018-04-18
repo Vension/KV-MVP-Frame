@@ -22,7 +22,7 @@ open class KVApplication : V_Application() {
         //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreater { context, layout ->
             //全局设置主题颜色
-            layout?.setPrimaryColorsId(R.color.app_main_backgroup_color, android.R.color.white)
+            layout.setPrimaryColorsId(R.color.app_main_backgroup_color, android.R.color.white)
             //指定为经典Header，默认是 贝塞尔雷达Header
             MaterialHeader(context)
 //            PhoenixHeader(context)

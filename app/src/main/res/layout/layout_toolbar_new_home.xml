@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:titlebar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <com.wuhenzhizao.titlebar.widget.CommonTitleBar
+        android:id="@+id/mCommonTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        titlebar:statusBarColor="@color/color_new_main"
+        titlebar:titleBarColor="@color/color_new_main"
+        titlebar:leftType="imageButton"
+        titlebar:leftImageResource="@drawable/ic_person_outline_white_24dp"
+        titlebar:centerType="customView"
+        titlebar:centerCustomView="@layout/layout_custom_titlebar_new_home_left"
+        titlebar:rightImageResource="@drawable/ic_linked_camera_white_24dp"
+        titlebar:rightType="imageButton"
+        titlebar:showBottomLine="false"
+        />
+</FrameLayout>

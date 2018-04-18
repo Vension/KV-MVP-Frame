@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activitys.MainMeunActivity">
+
+    <FrameLayout
+        android:id="@+id/news_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/news_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Design.BottomNavigationView"
+        android:background="?android:attr/windowBackground"
+        android:elevation="12dip"
+        app:itemIconTint="@drawable/new_item_color_state"
+        app:itemTextColor="@drawable/new_item_color_state"
+        app:menu="@menu/bottom_navigation_news"/>
+
+</LinearLayout>

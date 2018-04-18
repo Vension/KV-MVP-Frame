@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction
 import com.vension.frame.utils.navbar.BottomNavigationViewHelper
 import com.vension.mvp.R
 import com.vension.mvp.base.BaseFragment
-import com.vension.mvp.ui.fragments.TestFragment
 import kotlinx.android.synthetic.main.fragment_headlines_main.*
 
 /**
@@ -20,8 +19,8 @@ import kotlinx.android.synthetic.main.fragment_headlines_main.*
 
 class HeadLineNewsMainFragment : BaseFragment() {
 
-    private var _TabFragment_1 : TestFragment? = null //首页新闻
-    private var _TabFragment_2 : TestFragment? = null //视频
+    private var _TabFragment_1 : NewsTabFragment? = null //首页新闻
+    private var _TabFragment_2 : VideoTabFragment? = null //视频
     private var _TabFragment_3 : HeadlineNumFragment? = null //微头条
     private var _TabFragment_4 : MineFragment? = null //我的
 
@@ -76,13 +75,13 @@ class HeadLineNewsMainFragment : BaseFragment() {
         when (position) {
             0 -> _TabFragment_1?.let {
                 transaction.show(it)
-            } ?: TestFragment.getInstance("首页新闻").let {
+            } ?: NewsTabFragment().let {
                 _TabFragment_1 = it
                 transaction.add(R.id.news_main_content, it, "new_home")
             }
             1 -> _TabFragment_2?.let {
                 transaction.show(it)
-            } ?: TestFragment.getInstance("视频").let {
+            } ?: VideoTabFragment().let {
                 _TabFragment_2 = it
                 transaction.add(R.id.news_main_content, it, "new_video") }
             2 -> _TabFragment_3?.let {

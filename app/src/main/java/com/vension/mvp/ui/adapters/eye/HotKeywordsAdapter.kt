@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.TextView
 import com.google.android.flexbox.FlexboxLayoutManager
-import com.kevin.vension.demo.adapters.recy.CommonRecyAdapter
+import com.vension.frame.adapters.recy.CommonRecyAdapter
 import com.kevin.vension.demo.adapters.recy.ViewHolder
 import com.vension.mvp.R
 

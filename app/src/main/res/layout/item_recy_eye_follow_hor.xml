@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:padding="10dip"
+              android:orientation="vertical">
+
+    <com.sunfusheng.glideimageview.GlideImageView
+        android:id="@+id/iv_cover_feed"
+        android:layout_width="300dip"
+        android:layout_height="200dip"
+        android:clickable="false"
+        android:focusable="false"
+        android:src="@mipmap/img_load_empty"
+        app:siv_radius="8dip"
+        app:siv_shape_type="rectangle"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dip"
+        android:textColor="@color/app_main_text_color"
+        android:textSize="@dimen/TextSize_14"
+        tools:text="一起来健身吧：Fly" />
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/Color_666666"
+        android:textSize="@dimen/TextSize_12"
+        tools:text="#生活 / 04" />
+
+</LinearLayout>

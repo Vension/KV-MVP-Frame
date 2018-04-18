@@ -1,7 +1,7 @@
 package com.vension.mvp.mvp.eye.contract
 
-import com.kevin.vension.demo.base.V_IBaseView
-import com.kevin.vension.demo.base.V_IPresenter
+import com.vension.frame.base.V_IBaseView
+import com.vension.frame.base.V_IPresenter
 import com.vension.mvp.beans.eyes.TabInfoBean
 
 /**
@@ -14,7 +14,7 @@ import com.vension.mvp.beans.eyes.TabInfoBean
 
 interface HotTabContract {
 
-    interface View:V_IBaseView{
+    interface View: V_IBaseView {
         /**
          * 设置 TabInfo
          */
@@ -24,7 +24,7 @@ interface HotTabContract {
     }
 
 
-    interface Presenter:V_IPresenter<View>{
+    interface Presenter: V_IPresenter<View> {
         /**
          * 获取 TabInfo
          */

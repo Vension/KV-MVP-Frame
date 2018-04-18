@@ -1,7 +1,7 @@
 package com.vension.mvp.mvp.contract
 
-import com.kevin.vension.demo.base.V_IBaseView
-import com.kevin.vension.demo.base.V_IPresenter
+import com.vension.frame.base.V_IBaseView
+import com.vension.frame.base.V_IPresenter
 
 /**
  * @author ：Created by Administrator on 2018/4/3 18:00.
@@ -10,14 +10,14 @@ import com.kevin.vension.demo.base.V_IPresenter
  */
 interface JokeContentContract {
 
-    interface View : V_IBaseView{
+    interface View : V_IBaseView {
         /**
          * 请求数据
          */
          fun onLoadData()
     }
 
-    interface Presenter : V_IPresenter<View>{
+    interface Presenter : V_IPresenter<View> {
         /**
          * 请求数据
          */

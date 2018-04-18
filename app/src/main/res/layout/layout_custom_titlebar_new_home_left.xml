@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="240dip"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="6dip"
+        style="@style/padding_left_6dip_top_3dip"
+        android:background="@drawable/shape_rect_bg_white_stoke_ddd_radius_5dip"
+        android:hint="NBA|社会现象|人文历史"
+        android:drawablePadding="6dip"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/TextSize_14"
+        android:textColor="@color/app_main_text_color"
+        android:drawableLeft="@mipmap/ic_action_search_black"/>
+
+</RelativeLayout>

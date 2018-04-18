@@ -1,7 +1,7 @@
 package com.vension.mvp.mvp.eye.contract
 
-import com.kevin.vension.demo.base.V_IBaseView
-import com.kevin.vension.demo.base.V_IPresenter
+import com.vension.frame.base.V_IBaseView
+import com.vension.frame.base.V_IPresenter
 import com.vension.mvp.beans.eyes.CategoryBean
 
 /**
@@ -26,7 +26,7 @@ interface CategoryContract {
         fun showError(errorMsg:String,errorCode:Int)
     }
 
-    interface Presenter:V_IPresenter<View>{
+    interface Presenter: V_IPresenter<View> {
         /**
          * 获取分类的信息
          */

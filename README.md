@@ -4,13 +4,12 @@
 ## 初步完成项目设计和基本功能，(接入今日头条、Gank妹子、开眼等api)
 
 - gif效果图
-<details>
-  <div style="display:flex;">
+ <div style="display:flex;">
      <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF1.gif" width="30%">
      <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF2.gif" width="30%">
      <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF3.gif" width="30%">
-   </div>
-</details>
+ </div>
+
     
 
 

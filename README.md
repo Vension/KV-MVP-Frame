@@ -4,11 +4,15 @@
 ## 初步完成项目设计和基本功能，(接入今日头条、Gank妹子、开眼等api)
 
 - gif效果图
-<div style="display:flex;">
-   <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF1.gif" width="30%">
-   <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF2.gif" width="30%">
-   <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF3.gif" width="30%">
- </details>
+<details>
+  <div style="display:flex;">
+     <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF1.gif" width="30%">
+     <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF2.gif" width="30%">
+     <img alt="image" src="https://github.com/Vension/KV-MVP-Frame/blob/master/gif/GIF3.gif" width="30%">
+   </div>
+</details>
+    
+
 
 ## Thanks
 
@@ -26,7 +30,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

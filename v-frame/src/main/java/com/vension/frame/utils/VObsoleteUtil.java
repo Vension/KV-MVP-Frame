@@ -133,5 +133,33 @@ public class VObsoleteUtil {
 		return ResourcesCompat.getColorStateList(VFrame.getResources(), id, theme);
 	}
 
+	/**
+	 * 得到string.xml中的字符串
+	 *
+	 * @param resId
+	 * @return
+	 */
+	public static String getString(int resId) {
+		return VFrame.getResources().getString(resId);
+	}
+
+	/**
+	 * 得到string.xml中的字符串，带点位符
+	 *
+	 * @return
+	 */
+	public static String getString(int id, Object... formatArgs) {
+		return VFrame.getResources().getString(id, formatArgs);
+	}
+
+	/**
+	 * 得到string.xml中和字符串数组
+	 *
+	 * @param resId
+	 * @return
+	 */
+	public static String[] getStringArr(int resId) {
+		return VFrame.getResources().getStringArray(resId);
+	}
 
 }

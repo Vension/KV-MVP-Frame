@@ -11,7 +11,7 @@
         android:layout_marginBottom="6dip"
         style="@style/padding_left_6dip_top_3dip"
         android:background="@drawable/shape_rect_bg_white_stoke_ddd_radius_5dip"
-        android:hint="NBA|社会现象|人文历史"
+        android:hint="NBA | 社会现象 | 人文历史"
         android:drawablePadding="6dip"
         android:gravity="center_vertical"
         android:textSize="@dimen/TextSize_14"

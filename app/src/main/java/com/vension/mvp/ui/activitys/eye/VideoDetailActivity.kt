@@ -101,8 +101,8 @@ class VideoDetailActivity : BaseActivity(), VideoDetailContract.View,SwipeRefres
         //设置刷新控件监听
         mRefreshLayout.setOnRefreshListener(this)
         //初始化recyclerview
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mRecyclerView.adapter = mAdapter
+        eye_recyclerView_video.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        eye_recyclerView_video.adapter = mAdapter
 
         //设置相关视频 Item 的点击事件
         mAdapter?.setOnItemDetailClick { mPresenter.loadVideoInfo(it) }

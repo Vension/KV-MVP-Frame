@@ -1717,4 +1717,10 @@ public final class TimeUtil {
         }
         return true;
     }
+
+
+    public static String getCurrentTimeStamp() {
+        return String.valueOf(System.currentTimeMillis() / 1000);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.vension.frame.base
 
+import android.arch.lifecycle.Lifecycle
 import android.content.Context
 import android.os.Bundle
 import android.support.annotation.LayoutRes
@@ -15,11 +16,15 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import com.gw.swipeback.WxSwipeBackLayout
 import com.tbruyelle.rxpermissions2.RxPermissions
+import com.uber.autodispose.AutoDispose
+import com.uber.autodispose.AutoDisposeConverter
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import com.vension.frame.R
 import com.vension.frame.stacks.observers.ActivityObserver
 import com.vension.frame.views.MultipleStatusView
 import com.wuhenzhizao.titlebar.utils.AppUtils
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
+import org.greenrobot.eventbus.EventBus
 
 /**
  * ========================================================
@@ -245,6 +250,27 @@ abstract class V_BaseActivity : AppCompatActivity(), V_IActivity {
         imm.hideSoftInputFromWindow(mEditText.windowToken, 0)
     }
 
+
+    fun isEventBusRegisted(subscribe: Any): Boolean {
+        return EventBus.getDefault().isRegistered(subscribe)
+    }
+
+    fun registerEventBus(subscribe: Any) {
+        if (!isEventBusRegisted(subscribe)) {
+            EventBus.getDefault().register(subscribe)
+        }
+    }
+
+    fun unregisterEventBus(subscribe: Any) {
+        if (isEventBusRegisted(subscribe)) {
+            EventBus.getDefault().unregister(subscribe)
+        }
+    }
+
+    fun <X> bindAutoDispose(): AutoDisposeConverter<X> {
+        return AutoDispose.autoDisposable(AndroidLifecycleScopeProvider
+                .from(this, Lifecycle.Event.ON_DESTROY))
+    }
 
     // ====================================添加fragment=======================================
     /**

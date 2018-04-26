@@ -28,7 +28,8 @@ object RetrofitFactory{
     private var mRetrofitNews: Retrofit? = null
     private var mRetrofitEyes: Retrofit? = null
     private var mRetrofitGanks: Retrofit? = null
-
+    @Volatile
+    private var mRetrofit: Retrofit? = null
     val toutiaoService: ApiTouTiaoService by lazy { getRetrofitNews()!!.create(ApiTouTiaoService::class.java)}
     val eyesService: ApiEyesService by lazy { getRetrofitEyes()!!.create(ApiEyesService::class.java)}
     val gankService: GankApiService by lazy { getRetrofitGanks()!!.create(GankApiService::class.java)}
@@ -44,6 +45,11 @@ object RetrofitFactory{
             val request: Request
             val modifiedUrl = originalRequest.url().newBuilder()
                     // Provide your custom parameter here
+                    .addQueryParameter("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.108 Safari/537.36 2345Explorer/8.0.0.13547")
+                    .addQueryParameter("Cache-Control", "max-age=0")
+                    .addQueryParameter("Upgrade-Insecure-Requests", "1")
+                    .addQueryParameter("X-Requested-With", "XMLHttpRequest")
+                    .addQueryParameter("Cookie", "uuid=\"w:f2e0e469165542f8a3960f67cb354026\"; __tasessionId=4p6q77g6q1479458262778; csrftoken=7de2dd812d513441f85cf8272f015ce5; tt_webid=36385357187")
                     .addQueryParameter("phoneSystem", "")
                     .addQueryParameter("phoneModel", "")
                     .build()
@@ -68,28 +74,36 @@ object RetrofitFactory{
     }
 
 
+    /**
+     * 缓存机制
+     * 在响应请求之后在 data/data/<包名>/cache 下建立一个response 文件夹，保持缓存数据。
+     * 这样我们就可以在请求的时候，如果判断到没有网络，自动读取缓存的数据。
+     * 同样这也可以实现，在我们没有网络的情况下，重新打开App可以浏览的之前显示过的内容。
+     * 也就是：判断网络，有网络，则从网络获取，并保存到缓存中，无网络，则从缓存中获取。
+     * https://werb.github.io/2016/07/29/%E4%BD%BF%E7%94%A8Retrofit2+OkHttp3%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%A4%84%E7%90%86/
+     */
     private fun addCacheInterceptor(): Interceptor {
         return Interceptor { chain ->
             var request = chain.request()
+            //网络不可用
             if (!NetworkUtil.isNetworkAvailable(VFrame.getContext())) {
-                request = request.newBuilder()
-                        .cacheControl(CacheControl.FORCE_CACHE)
-                        .build()
+                request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build()
             }
             val response = chain.proceed(request)
+            //网络已连接
             if (NetworkUtil.isNetworkAvailable(VFrame.getContext())) {
                 val maxAge = 0
                 // 有网络时 设置缓存超时时间0个小时 ,意思就是不读取缓存数据,只对get有用,post没有缓冲
                 response.newBuilder()
-                        .header("Cache-Control", "public, max-age=" + maxAge)
-                        .removeHeader("Retrofit")// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
+                        .header("Cache-Control", "public, max-age=$maxAge")
+                        .removeHeader("Pragma")// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
                         .build()
             } else {
-                // 无网络时，设置超时为4周  只对get有用,post没有缓冲
-                val maxStale = 60 * 60 * 24 * 28
+                // 无网络时，设置超时为1周  只对get有用,post没有缓冲
+                val maxStale = 60 * 60 * 24 * 7
                 response.newBuilder()
-                        .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                        .removeHeader("nyn")
+                        .header("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
+                        .removeHeader("Pragma")
                         .build()
             }
             response
@@ -103,7 +117,7 @@ object RetrofitFactory{
                     // 获取retrofit的实例
                     mRetrofitNews = Retrofit.Builder()
                             .baseUrl(UriConstant.BASE_URL_TOUTIAO)  //自己配置
-                            .client( getClient())
+                            .client( createClient())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .addConverterFactory(GsonConverterFactory.create())
                             .build()
@@ -120,7 +134,7 @@ object RetrofitFactory{
                     // 获取retrofit的实例
                     mRetrofitEyes = Retrofit.Builder()
                             .baseUrl(UriConstant.BASE_URL_EYES)  //自己配置
-                            .client( getClient())
+                            .client( createClient())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .addConverterFactory(GsonConverterFactory.create())
                             .build()
@@ -137,7 +151,7 @@ object RetrofitFactory{
                     // 获取retrofit的实例
                     mRetrofitGanks = Retrofit.Builder()
                             .baseUrl(UriConstant.BASE_URL_GANKS)  //自己配置
-                            .client( getClient())
+                            .client( createClient())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .addConverterFactory(GsonConverterFactory.create())
                             .build()
@@ -147,20 +161,44 @@ object RetrofitFactory{
         return mRetrofitGanks
     }
 
-    private fun getClient(): OkHttpClient? {
+
+    fun getRetrofit(): Retrofit? {
+        if (mRetrofit == null) {
+            synchronized(RetrofitFactory::class.java) {
+                if (mRetrofit == null) {
+                    // 获取retrofit的实例
+                    mRetrofit = Retrofit.Builder()
+                            .baseUrl(UriConstant.BASE_URL_GANKS)  //自己配置
+                            .client( createClient())
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build()
+                }
+            }
+        }
+        return mRetrofit
+    }
+
+
+    private fun createClient(): OkHttpClient? {
         if (mClient == null) {
             synchronized(RetrofitFactory::class.java) {
                 if (mClient == null) {
+
                     //添加一个log拦截器,打印所有的log
                     val httpLoggingInterceptor = HttpLoggingInterceptor()
                     //可以设置请求过滤的水平,body,basic,headers
                     httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
                     //设置 请求的缓存的大小跟位置
-                    val cacheFile = File(VFrame.getContext().cacheDir, "cache")
+                    val cacheFile = File(VFrame.getContext().cacheDir, "HttpCache")
                     val cache = Cache(cacheFile, 1024 * 1024 * 50) //50Mb 缓存的大小
 
+                    // Cookie 持久化
+//                    val cookieJar = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(InitApp.AppContext))
+
                     mClient = OkHttpClient.Builder()
+//                            .cookieJar(cookieJar)
                             .addInterceptor(addQueryParameterInterceptor())  //参数添加
                             .addInterceptor(addHeaderInterceptor()) // token过滤
                             .addInterceptor(addCacheInterceptor()) //添加网络缓存拦截
@@ -169,6 +207,7 @@ object RetrofitFactory{
                             .connectTimeout(60L, TimeUnit.SECONDS)
                             .readTimeout(60L, TimeUnit.SECONDS)
                             .writeTimeout(60L, TimeUnit.SECONDS)
+                            .retryOnConnectionFailure(true)//重连
                             .build()
                 }
             }
@@ -176,6 +215,7 @@ object RetrofitFactory{
 
         return mClient
     }
+
 
 }
 

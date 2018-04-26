@@ -1,6 +1,7 @@
 package com.vension.frame.base
 
 import android.app.Activity
+import android.arch.lifecycle.Lifecycle
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.annotation.UiThread
@@ -11,11 +12,15 @@ import android.view.ViewGroup
 import android.view.ViewStub
 import android.widget.FrameLayout
 import com.tbruyelle.rxpermissions2.RxPermissions
+import com.uber.autodispose.AutoDispose
+import com.uber.autodispose.AutoDisposeConverter
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import com.vension.frame.R
 import com.vension.frame.stacks.observers.FragmentObserver
 import com.vension.frame.utils.VLogUtil
 import com.vension.frame.views.MultipleStatusView
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -217,5 +222,28 @@ abstract class V_BaseFragment : Fragment(),V_IFragment {
         V_Application.getRefWatcher(activity!!)?.watch(activity)
     }
 
+    fun isEventBusRegisted(subscribe: Any): Boolean {
+        return EventBus.getDefault().isRegistered(subscribe)
+    }
+
+    fun registerEventBus(subscribe: Any) {
+        if (!isEventBusRegisted(subscribe)) {
+            EventBus.getDefault().register(subscribe)
+        }
+    }
+
+    fun unregisterEventBus(subscribe: Any) {
+        if (isEventBusRegisted(subscribe)) {
+            EventBus.getDefault().unregister(subscribe)
+        }
+    }
+
+    /**
+     * 绑定生命周期
+     */
+    fun <X> bindAutoDispose(): AutoDisposeConverter<X> {
+        return AutoDispose.autoDisposable(AndroidLifecycleScopeProvider
+                .from(this, Lifecycle.Event.ON_DESTROY))
+    }
 
 }

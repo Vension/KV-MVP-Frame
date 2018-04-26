@@ -17,10 +17,10 @@
 
     <application
         android:name=".base.KVApplication"
-        android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@mipmap/icon_logo"
-        android:roundIcon="@mipmap/icon_logo"
+        android:roundIcon="@mipmap/icon_logo_round"
+        android:allowBackup="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -68,6 +68,32 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.SwipeBackTranslucent"
             android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".ui.activitys.headline.SearchActivity2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SwipeBackTranslucent"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".ui.activitys.headline.NewsDetailActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:theme="@style/AppTheme.SwipeBackTranslucent"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ui.activitys.headline.NewVideoDetailActicity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:theme="@style/AppTheme.SwipeBackTranslucent"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".ui.activitys.headline.ImageViewPagerActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:theme="@style/AppTheme.SwipeBackTranslucent"
+            android:screenOrientation="portrait"
+            />
 
         <activity android:name=".ui.activitys.AboutActivity"
                   android:configChanges="keyboardHidden|orientation|uiMode"

@@ -8,6 +8,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -36,9 +38,14 @@ import java.util.List;
 public class VFrame {
 
 	public final static String TAG = VFrame.class.getSimpleName();
-
+	//以下属性应用于整个应用程序，合理利用资源，减少资源浪费
 	private static Application vApplication;
-	private static Context vContext;
+	private static Context vContext;//上下文
+	private static Thread mMainThread;//主线程
+	private static long mMainThreadId;//主线程id
+	private static Looper mMainLooper;//循环队列
+	private static Handler mHandler;//主线程Handler
+
 	public static WeakReference<Activity> activityWeakReference;
 	public static List<Activity> vActivityList = new LinkedList<>();
 
@@ -106,6 +113,16 @@ public class VFrame {
 
 	public static Resources getResources(){
 		return VFrame.getContext().getResources();
+	}
+
+	public static Thread getMainThread(){
+		return mMainThread = Thread.currentThread();
+	}
+	public static long getMainThreadId(){
+		return mMainThreadId = android.os.Process.myTid();
+	}
+	public static Handler getMainHandler(){
+		return mHandler = new Handler();
 	}
 
 	public static String getString(@StringRes int id){

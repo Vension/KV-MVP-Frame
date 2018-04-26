@@ -136,105 +136,223 @@
             </LinearLayout>
         </FrameLayout>
 
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dip"
-            android:alignmentMode="alignMargins"
-            android:background="@color/app_main_backgroup_color"
-            android:columnCount="3">
+            android:orientation="horizontal"
+            android:background="@color/app_main_backgroup_color">
+            <TextView
+            android:id="@+id/view_my_money_package"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dip"
+            android:background="@drawable/selector_button_white_press"
+            android:clickable="true"
+            android:drawablePadding="6dip"
+            android:drawableTop="@mipmap/v"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="钱包"
+            android:textColor="@color/Color_666666"
+            android:textSize="@dimen/TextSize_14"/>
 
             <TextView
-                android:id="@+id/view_my_money_package"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dip"
-                android:background="@drawable/selector_button_white_press"
-                android:clickable="true"
-                android:drawablePadding="6dip"
-                android:drawableTop="@mipmap/v"
-                android:gravity="center"
-                android:paddingBottom="15dip"
-                android:paddingTop="15dip"
-                android:text="钱包"
-                android:textColor="@color/Color_666666"
-                android:textSize="@dimen/TextSize_14"/>
+            android:id="@+id/view_my_order"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dip"
+            android:background="@drawable/selector_button_white_press"
+            android:clickable="true"
+            android:drawablePadding="6dip"
+            android:drawableTop="@mipmap/v"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="订单"
+            android:textColor="@color/Color_666666"
+            android:textSize="@dimen/TextSize_14"/>
 
             <TextView
-                android:id="@+id/view_my_order"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dip"
-                android:background="@drawable/selector_button_white_press"
-                android:clickable="true"
-                android:drawablePadding="6dip"
-                android:drawableTop="@mipmap/v"
-                android:gravity="center"
-                android:paddingBottom="15dip"
-                android:paddingTop="15dip"
-                android:text="订单"
-                android:textColor="@color/Color_666666"
-                android:textSize="@dimen/TextSize_14"/>
+            android:id="@+id/view_shopping_cart"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dip"
+            android:background="@drawable/selector_button_white_press"
+            android:clickable="true"
+            android:drawablePadding="6dip"
+            android:drawableTop="@mipmap/v"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="购物车"
+            android:textColor="@color/Color_666666"
+            android:textSize="@dimen/TextSize_14"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dip"
+            android:orientation="horizontal"
+            android:background="@color/app_main_backgroup_color">
 
             <TextView
-                android:id="@+id/view_shopping_cart"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dip"
-                android:background="@drawable/selector_button_white_press"
-                android:clickable="true"
-                android:drawablePadding="6dip"
-                android:drawableTop="@mipmap/v"
-                android:gravity="center"
-                android:paddingBottom="15dip"
-                android:paddingTop="15dip"
-                android:text="购物车"
-                android:textColor="@color/Color_666666"
-                android:textSize="@dimen/TextSize_14"/>
+            android:id="@+id/view_my_collection"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dip"
+            android:background="@drawable/selector_button_white_press"
+            android:clickable="true"
+            android:drawablePadding="6dip"
+            android:drawableTop="@mipmap/v"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="收藏"
+            android:textColor="@color/Color_666666"
+            android:textSize="@dimen/TextSize_14"/>
 
             <TextView
-                android:id="@+id/view_my_collection"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dip"
-                android:background="@drawable/selector_button_white_press"
-                android:clickable="true"
-                android:drawablePadding="6dip"
-                android:drawableTop="@mipmap/v"
-                android:gravity="center"
-                android:paddingBottom="15dip"
-                android:paddingTop="15dip"
-                android:text="收藏"
-                android:textColor="@color/Color_666666"
-                android:textSize="@dimen/TextSize_14"/>
+            android:id="@+id/view_my_focus"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dip"
+            android:background="@drawable/selector_button_white_press"
+            android:clickable="true"
+            android:drawablePadding="6dip"
+            android:drawableTop="@mipmap/v"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="关注"
+            android:textColor="@color/Color_666666"
+            android:textSize="@dimen/TextSize_14"/>
 
             <TextView
-                android:id="@+id/view_my_focus"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dip"
-                android:background="@drawable/selector_button_white_press"
-                android:clickable="true"
-                android:drawablePadding="6dip"
-                android:drawableTop="@mipmap/v"
-                android:gravity="center"
-                android:paddingBottom="15dip"
-                android:paddingTop="15dip"
-                android:text="关注"
-                android:textColor="@color/Color_666666"
-                android:textSize="@dimen/TextSize_14"/>
+            android:id="@+id/view_my_message"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dip"
+            android:background="@drawable/selector_button_white_press"
+            android:clickable="true"
+            android:drawablePadding="6dip"
+            android:drawableTop="@mipmap/v"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="消息"
+            android:textColor="@color/Color_666666"
+            android:textSize="@dimen/TextSize_14"/>
 
-            <TextView
-                android:id="@+id/view_my_message"
-                android:layout_columnWeight="1"
-                android:layout_margin="1dip"
-                android:background="@drawable/selector_button_white_press"
-                android:clickable="true"
-                android:drawablePadding="6dip"
-                android:drawableTop="@mipmap/v"
-                android:gravity="center"
-                android:paddingBottom="15dip"
-                android:paddingTop="15dip"
-                android:text="消息"
-                android:textColor="@color/Color_666666"
-                android:textSize="@dimen/TextSize_14"/>
+        </LinearLayout>
+        <!--<GridLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="12dip"-->
+            <!--android:alignmentMode="alignMargins"-->
+            <!--android:background="@color/app_main_backgroup_color"-->
+            <!--android:columnCount="3">-->
 
-        </GridLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/view_my_money_package"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_columnWeight="1"-->
+                <!--android:layout_margin="1dip"-->
+                <!--android:background="@drawable/selector_button_white_press"-->
+                <!--android:clickable="true"-->
+                <!--android:drawablePadding="6dip"-->
+                <!--android:drawableTop="@mipmap/v"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="15dip"-->
+                <!--android:paddingTop="15dip"-->
+                <!--android:text="钱包"-->
+                <!--android:textColor="@color/Color_666666"-->
+                <!--android:textSize="@dimen/TextSize_14"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/view_my_order"-->
+                <!--android:layout_columnWeight="1"-->
+                <!--android:layout_margin="1dip"-->
+                <!--android:background="@drawable/selector_button_white_press"-->
+                <!--android:clickable="true"-->
+                <!--android:drawablePadding="6dip"-->
+                <!--android:drawableTop="@mipmap/v"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="15dip"-->
+                <!--android:paddingTop="15dip"-->
+                <!--android:text="订单"-->
+                <!--android:textColor="@color/Color_666666"-->
+                <!--android:textSize="@dimen/TextSize_14"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/view_shopping_cart"-->
+                <!--android:layout_columnWeight="1"-->
+                <!--android:layout_margin="1dip"-->
+                <!--android:background="@drawable/selector_button_white_press"-->
+                <!--android:clickable="true"-->
+                <!--android:drawablePadding="6dip"-->
+                <!--android:drawableTop="@mipmap/v"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="15dip"-->
+                <!--android:paddingTop="15dip"-->
+                <!--android:text="购物车"-->
+                <!--android:textColor="@color/Color_666666"-->
+                <!--android:textSize="@dimen/TextSize_14"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/view_my_collection"-->
+                <!--android:layout_columnWeight="1"-->
+                <!--android:layout_margin="1dip"-->
+                <!--android:background="@drawable/selector_button_white_press"-->
+                <!--android:clickable="true"-->
+                <!--android:drawablePadding="6dip"-->
+                <!--android:drawableTop="@mipmap/v"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="15dip"-->
+                <!--android:paddingTop="15dip"-->
+                <!--android:text="收藏"-->
+                <!--android:textColor="@color/Color_666666"-->
+                <!--android:textSize="@dimen/TextSize_14"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/view_my_focus"-->
+                <!--android:layout_columnWeight="1"-->
+                <!--android:layout_margin="1dip"-->
+                <!--android:background="@drawable/selector_button_white_press"-->
+                <!--android:clickable="true"-->
+                <!--android:drawablePadding="6dip"-->
+                <!--android:drawableTop="@mipmap/v"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="15dip"-->
+                <!--android:paddingTop="15dip"-->
+                <!--android:text="关注"-->
+                <!--android:textColor="@color/Color_666666"-->
+                <!--android:textSize="@dimen/TextSize_14"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/view_my_message"-->
+                <!--android:layout_columnWeight="1"-->
+                <!--android:layout_margin="1dip"-->
+                <!--android:background="@drawable/selector_button_white_press"-->
+                <!--android:clickable="true"-->
+                <!--android:drawablePadding="6dip"-->
+                <!--android:drawableTop="@mipmap/v"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="15dip"-->
+                <!--android:paddingTop="15dip"-->
+                <!--android:text="消息"-->
+                <!--android:textColor="@color/Color_666666"-->
+                <!--android:textSize="@dimen/TextSize_14"/>-->
+
+        <!--</GridLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -263,7 +381,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>1"
                     android:textColor="@color/Color_666666"
@@ -292,7 +410,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>2"
                     android:textColor="@color/Color_666666"
@@ -320,7 +438,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>3"
                     android:textColor="@color/Color_666666"
@@ -348,7 +466,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>4"
                     android:textColor="@color/Color_666666"
@@ -376,7 +494,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>5"
                     android:textColor="@color/Color_666666"
@@ -404,7 +522,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>6"
                     android:textColor="@color/Color_666666"
@@ -432,7 +550,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>7"
                     android:textColor="@color/Color_666666"
@@ -460,7 +578,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/MarginSize_10"
                     android:drawablePadding="8dip"
-                    android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
+                    android:drawableRight="@mipmap/icon_back_gray"
                     android:gravity="center_vertical|left"
                     android:text="item==>8"
                     android:textColor="@color/Color_666666"

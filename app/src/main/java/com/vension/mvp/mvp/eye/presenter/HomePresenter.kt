@@ -1,8 +1,8 @@
 package com.vension.mvp.mvp.eye.presenter
 
-import com.vension.mvp.http.exception.ExceptionHandle
 import com.vension.frame.base.V_BasePresenter
 import com.vension.mvp.beans.eyes.HomeBean
+import com.vension.mvp.http.exception.ExceptionHandle
 import com.vension.mvp.mvp.eye.contract.HomeContract
 import com.vension.mvp.mvp.eye.model.HomeModel
 
@@ -23,7 +23,6 @@ class HomePresenter : V_BasePresenter<HomeContract.View>(), HomeContract.Present
     private var nextPageUrl:String?=null     //加载首页的Banner 数据+一页数据合并后，nextPageUrl没 add
 
     private val homeModel: HomeModel by lazy {
-
         HomeModel()
     }
 

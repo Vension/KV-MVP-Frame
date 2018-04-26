@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.vension.mvp.widget.TipView
+        android:id="@+id/tip_view"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:visibility="gone"
+        app:tipBackgroundColor="@color/color_D5E8F6"
+        app:tipText="@string/net_unavailable"
+        app:tipTextColor="@color/color_4592C6"
+        app:tipTextSize="14sp"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/new_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+        <com.vension.frame.views.MultipleStatusView
+            android:id="@+id/new_MultipleStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.vension.mvp.widget.powerfulrecyclerview.PowerfulRecyclerView
+                android:id="@+id/refreshRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:dividerMarginLeft="10dp"
+                app:dividerMarginRight="10dp"
+                app:dividerColor="@color/color_d8d8d8"
+                app:dividerSize="0.5dp"/>
+        </com.vension.frame.views.MultipleStatusView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

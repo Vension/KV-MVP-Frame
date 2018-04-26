@@ -1,13 +1,11 @@
 package com.vension.mvp.http.api
 
-import com.vension.mvp.beans.SearchRecommentBean
-import com.vension.mvp.beans.headline.joke.JokeCommentBean
-import com.vension.mvp.beans.headline.joke.JokeContentBean
-import com.vension.mvp.utils.Constants
+import com.vension.mvp.beans.headline.*
 import io.reactivex.Observable
 import retrofit2.http.GET
-import retrofit2.http.Headers
+import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 /**
  * Created by xuhao on 2017/11/16.
@@ -24,26 +22,73 @@ import retrofit2.http.Query
 
 interface ApiTouTiaoService{
 
-    /**
-     * 获取段子正文内容
-     * http://www.toutiao.com/api/article/feed/?category=essay_joke&as=A115C8457F69B85&cp=585F294B8845EE1
-     */
-    @GET("api/article/feed/?category=essay_joke")
-    abstract fun getJokeContent(
-            @Query("max_behot_time") maxBehotTime: String,
-            @Query("as") `as`: String,
-            @Query("cp") cp: String): Observable<JokeContentBean>
+    val GET_COMMENT_LIST: String get() = "article/v2/tab_comments/"
+    //http://is.snssdk.com
+    //http://is.snssdk.com/api/news/feed/v54/?refer=1&count=20&min_behot_time=1498722625&last_refresh_sub_entrance_interval=1498724693&loc_mode=4&tt_from=pull（tab_tip） 新闻列表
+    //http://is.snssdk.com/article/v2/tab_comments/?group_id=6436886053704958466&item_id=6436886053704958466&offset=30&count=20 评论
+    //http://is.snssdk.com/2/article/information/v21/ 详情
 
     /**
-     * 获取段子评论
-     * http://m.neihanshequ.com/api/get_essay_comments/?group_id=编号&count=数量&offset=偏移量
+     * 获取新闻列表
+     *
+     * @param category 频道
+     * @return
      */
-    @GET("http://m.neihanshequ.com/api/get_essay_comments/?count=20")
-    @Headers("User-Agent:" + Constants.USER_AGENT_MOBILE)
-    abstract fun getJokeComment(
-            @Query("group_id") groupId: String,
-            @Query("offset") offset: Int): Observable<JokeCommentBean>
+    @GET("api/news/feed/v62/?refer=1&count=20&loc_mode=4&device_id=34960436458&iid=13136511752")
+    fun getNewsList(@Query("category") category: String,
+                    @Query("min_behot_time") lastTime: Long,
+                    @Query("last_refresh_sub_entrance_interval") currentTime: Long)
+            : Observable<NewsResponse>
 
+
+    @POST("http://service.iiilab.com/video/toutiao")
+    fun getVideoPath(@Query("link") link: String, @Query("r") r: String, @Query("s") s: String): Observable<VideoPathResponse>
+
+
+    /**
+     * 获取视频信息
+     * Api 生成较复杂 详情查看
+     * http://ib.365yg.com/video/urls/v/1/toutiao/mp4/视频ID?r=17位随机数&s=加密结果
+     */
+    @GET
+    fun getVideoContent(@Url url: String): Observable<VideoContentBean>
+
+    /**
+     * 获取新闻详情
+     */
+    @GET
+    fun getNewsDetail(@Url url: String): Observable<ResultResponse<NewsDetail>>
+
+    /**
+     * 获取评论列表数据
+     *
+     * @param groupId
+     * @param itemId
+     * @param offset
+     * @param count
+     * @return
+     */
+    @GET("article/v2/tab_comments/")
+    fun getComment(@Query("group_id") groupId: String, @Query("item_id") itemId: String,
+                   @Query("offset") offset: String, @Query("count") count: String)
+                  : Observable<CommentResponse>
+
+
+    /**
+     * 获取搜索推荐
+     * http://is.snssdk.com/search/suggest/wap/initial_page/?from=feed&sug_category=__all__&iid=10344168417&device_id=36394312781&format=json
+     */
+    @GET("http://is.snssdk.com/search/suggest/wap/initial_page/?from=feed&sug_category=__all__&iid=10344168417&device_id=36394312781&format=json")
+     fun getSearchRecomment(): Observable<SearchRecommentBean>
+
+    /**
+     * 获取搜索建议
+     * http://is.snssdk.com/2/article/search_sug/?keyword=3&from=search_tab&iid=10344168417&device_id=36394312781
+     *
+     * @param keyword 搜索内容
+     */
+    @GET("http://is.snssdk.com/2/article/search_sug/?from=search_tab&iid=10344168417&device_id=36394312781")
+     fun getSearchSuggestion(@Query("keyword") keyword: String): Observable<SearchSuggestionBean>
 
     /**
      * 获取搜索建议
@@ -74,12 +119,6 @@ interface ApiTouTiaoService{
 //            @Query("cur_tab") curTab: String,
 //            @Query("offset") offset: Int): Observable<ResponseBody>
 
-    /**
-     * 获取搜索推荐
-     * http://is.snssdk.com/search/suggest/wap/initial_page/?from=feed&sug_category=__all__&iid=10344168417&device_id=36394312781&format=json
-     */
-    @GET("http://is.snssdk.com/search/suggest/wap/initial_page/?from=feed&sug_category=__all__&iid=10344168417&device_id=36394312781&format=json")
-    abstract fun getSearchRecomment(): Observable<SearchRecommentBean>
 
     /**
      * 获取搜索视频内容

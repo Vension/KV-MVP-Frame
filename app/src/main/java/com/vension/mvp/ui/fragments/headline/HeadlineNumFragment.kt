@@ -13,7 +13,7 @@ import com.vension.mvp.R
 import com.vension.mvp.base.BaseRefreshMVPFragment
 import com.vension.mvp.beans.headline.MediaChannelBean
 import com.vension.mvp.db.sqlite.dao.MediaChannelDao
-import com.vension.mvp.ui.adapters.RecyMediaAdapter
+import com.vension.mvp.ui.adapters.headline.RecyMediaAdapter
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable

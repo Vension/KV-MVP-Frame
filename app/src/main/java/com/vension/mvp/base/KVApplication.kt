@@ -7,12 +7,13 @@ import com.vension.frame.base.V_Application
 import com.vension.frame.utils.AppFrontBackHelper
 import com.vension.mvp.R
 import io.realm.Realm
+import org.litepal.LitePalApplication
 
 /**
  * ========================================================
  * 作  者：Vension
  * 日  期：2018/4/2 15:56
- * 描  述：
+ * 描  述：adb connect 127.0.0.1:26944
  * ========================================================
  */
 
@@ -52,6 +53,7 @@ open class KVApplication : V_Application() {
 //        VFrame.initXImageLoader(GlideImageLoader(applicationContext))
         //初始化数据库
         Realm.init(applicationContext)
+        LitePalApplication.initialize(applicationContext)//初始化litePal
         AppFrontBackHelper().register(this, object : AppFrontBackHelper.OnAppStatusListener {
             override fun onFront() {
                 //TODO 应用切到前台处理

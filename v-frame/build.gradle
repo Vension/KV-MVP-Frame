@@ -48,18 +48,26 @@ dependencies {
     // RxJava2
     api rootProject.ext.rxJavaLibs
 
+    // AutoDispose
+    api 'com.uber.autodispose:autodispose:0.7.0'
+    api 'com.uber.autodispose:autodispose-android:0.7.0'
+    api 'com.uber.autodispose:autodispose-android-archcomponents:0.7.0'
+
     //leakCanary --> https://github.com/square/leakcanary
     debugApi 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 
     //RecyclerView 通用适配器 --> https://github.com/CymChad/BaseRecyclerViewAdapterHelper
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.36'
+//    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.36'
+    api 'com.github.chaychan:MultipleItemRvAdapter:1.0.4'
     //eventBus时间订阅解耦 --> https://github.com/greenrobot/EventBus
     api 'org.greenrobot:eventbus:3.1.1'
     //适配5.0动态权限 --> https://github.com/tbruyelle/RxPermissions
     api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
     // 视屏播放器 --> https://github.com/CarGuo/GSYVideoPlayer
-    api 'com.shuyu:GSYVideoPlayer:4.1.1'
+    api 'com.shuyu:GSYVideoPlayer:4.1.2'
+    // 饺子视频播放器
+    api 'cn.jzvd:jiaozivideoplayer:6.2.9'
 
     /** ============================ Utils ================================= */
     //logger --> https://github.com/orhanobut/logger
@@ -74,7 +82,7 @@ dependencies {
     api 'com.gongwen:swipeback:1.0.2'
 
     /** ================================ Views ================================= */
-    //在通用标题栏 --> https://github.com/wuhenzhizao/android-titlebar
+    //通用标题栏 --> https://github.com/wuhenzhizao/android-titlebar
     api 'com.wuhenzhizao:titlebar:1.0.7'
     //smartRefreshLayout 下拉刷新 --> https://github.com/scwang90/SmartRefreshLayout
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'

@@ -16,7 +16,7 @@
 //
 //public class UserACache {
 //
-//	final private String ACACHE_USER_ENTITY_KEY = "UserEntity Key";//保存用户信息的key
+//	final private String ACACHE_USER_ENTITY_KEY = "UserBean Key";//保存用户信息的key
 //	final private String ACACHE_USER_NAME_KEY = "Contact name Key";//用户名
 //	final private String ACACHE_TOKEN_ENTITY_KEY = "TokenEntity Key";//保存accessToken的key
 //	final private String ACACHE_TOKEN_START_TIME_KEY = "Token Start Time Key";//token开始时间
@@ -45,11 +45,11 @@
 //		return !TextUtils.isEmpty(_SharedACache.getString(ACACHE_USER_ENTITY_KEY));
 //	}
 //
-//	synchronized public UserEntity getUserEntity() {
-//		UserEntity _UserModel = new UserEntity();
+//	synchronized public UserBean getUserEntity() {
+//		UserBean _UserModel = new UserBean();
 //		String _UserString = _SharedACache.getString(ACACHE_USER_ENTITY_KEY);
 //		if(!TextUtils.isEmpty(_UserString)) {
-//			_UserModel = new Gson().fromJson(_UserString, UserEntity.class);
+//			_UserModel = new Gson().fromJson(_UserString, UserBean.class);
 //		}
 //		return _UserModel;
 //	}
@@ -120,11 +120,11 @@
 //	}
 //
 //
-//	synchronized public void setUser(UserEntity model) {
+//	synchronized public void setUser(UserBean model) {
 //		setUser(getLastUsername(),model);
 //	}
 //
-//	synchronized public void setUser(String username, UserEntity model) {
+//	synchronized public void setUser(String username, UserBean model) {
 //		_SharedACache
 //				.put(ACACHE_USER_NAME_KEY, username)
 //				.put(ACACHE_USER_ENTITY_KEY, new Gson().toJson(model))

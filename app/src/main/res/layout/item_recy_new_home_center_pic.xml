@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="10dp"
+              android:background="@drawable/selector_button_white_press">
+
+    <include layout="@layout/layout_news_item_title"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dip"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/img_load_empty"/>
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_play_video"/>
+        <TextView
+            android:id="@+id/tv_bottom_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            style="@style/padding_left_6dip_top_3dip"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect_bg_black_radius_20"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="02:11"
+            android:textColor="@color/white"
+            android:minWidth="30dp"
+            android:textSize="8sp"/>
+    </FrameLayout>
+
+    <include layout="@layout/layout_news_item_bottom"/>
+
+</LinearLayout>

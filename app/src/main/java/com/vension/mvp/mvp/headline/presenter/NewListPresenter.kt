@@ -64,6 +64,7 @@ class NewListPresenter : V_BasePresenter<NewListContract.View>(), NewListContrac
                         newsList.filter { item ->
                             item.has_video && item.video_detail_info != null
                         }.forEach{ item ->
+                            synchronized (this) {
                             val url = getVideoContentApi(item.video_detail_info.video_id)
                             RetrofitFactory.getRetrofit()
                                     ?.create(ApiTouTiaoService::class.java)
@@ -96,13 +97,14 @@ class NewListPresenter : V_BasePresenter<NewListContract.View>(), NewListContrac
                                     ?.observeOn(AndroidSchedulers.mainThread())
                                     ?.subscribe({ s ->
                                         item.url = s.toString()
-                                        onGetNewsListSuccess(newsList, response.tips.display_info)
+//                                        onGetNewsListSuccess(newsList, response.tips.display_info)
                                         Log.d(TAG, "subscribe: ${item.url}")
                                     }, { throwable ->
 
                                     })
 //                            item.url = doLoadVideoData(item.video_detail_info.video_id)
                             VLogUtil.e("video_url==>${item.url}")
+                        }
                         }
                         VLogUtil.e(newsList.toString())
                         onGetNewsListSuccess(newsList, response.tips.display_info)
